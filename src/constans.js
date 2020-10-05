@@ -1,0 +1,3 @@
+//Details CONSTS
+export const SUBMIT_TO_DETAILS = "SUBMIT_TO_DETAILS";
+
