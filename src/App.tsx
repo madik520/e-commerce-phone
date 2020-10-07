@@ -5,6 +5,7 @@ import Header from './container/header';
 import { Switch, Route } from 'react-router-dom';
 import Main from './container/main';
 import Details from './container/details';
+import Modal from './components/modal/modal';
 
 
 const App: React.FC = () => {

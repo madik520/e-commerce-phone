@@ -1,7 +1,6 @@
 import React from 'react';
 import CardItem from './cardItem';
-import { submitToDetails } from '../../actions/actionCreator';
-import { connect } from 'react-redux';
+
 
 
 
@@ -11,27 +10,27 @@ type ICardTypes = {
     img: string,
     price: number,
     company: string,
-    info: string
+    info: string,
+    inCart: boolean
 }
 interface ICardList{
     arr: Array<ICardTypes>,
-    add: boolean,
-    onClick: React.MouseEventHandler<HTMLDivElement>
-    submitToDetails: any
+    onClick: React.MouseEventHandler<HTMLDivElement>,
+    submitToDetails: (obj:object) => void
 }
 
 
-const CardList:React.FC<ICardList> = ({ arr, add, onClick, submitToDetails }) => {
+const CardList:React.FC<ICardList> = ({ arr, onClick, submitToDetails}) => {
     return(
         <ul className="row">
-            { arr.map(({ id, title, price, img, company, info }) => {
+            { arr.map(({ id, title, price, img, company, info, inCart }) => {
                 return <CardItem 
                 key={id} 
                 id={id} 
                 title={title} 
                 price={price}
                 img={require(`../../styles/${img}`)}
-                add={add}
+                inCart={inCart}
                 onClick={() => {}}
                 submit={() => submitToDetails({id, title, price, img, company, info})}
                 />
@@ -41,4 +40,4 @@ const CardList:React.FC<ICardList> = ({ arr, add, onClick, submitToDetails }) =>
 };
 
 
-export default connect(null, { submitToDetails })(CardList);
+export default CardList;

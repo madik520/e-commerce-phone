@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { RootState } from '../reducers/index';
+import { Link } from 'react-router-dom';
 
 type DetailsProps = {
     id: number | null,
@@ -37,7 +38,7 @@ const Details:React.FC<IDetails> = ({ detailsReducer }) => {
                                 </li>
                             </ul>
                             <div className="details-footer">
-                                <button className="btn details-btn mr-2">Back To Products</button>
+                                <Link to="/"><button className="btn details-btn mr-2">Back To Products</button></Link>
                                 <button className="btn details-btn">Add To Cart</button>
                             </div>
                         </div>
