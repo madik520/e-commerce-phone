@@ -8,20 +8,22 @@ interface ICardItem {
     img: string,
     price: number,
     inCart: boolean,
-    onClick: React.MouseEventHandler<HTMLDivElement>,
-    submit: React.MouseEventHandler
+    total: number, 
+    count: number,
+    submit: React.MouseEventHandler,
+    addToCart: (id: number) => void
 }
 
-const CardItem:React.FC<ICardItem> = ({ id,  title, img,  price, onClick, inCart, submit }) => (
+const CardItem:React.FC<ICardItem> = ({ id,  title, img,  price, inCart, submit, addToCart }) => (
     <li className="col-9 mx-auto col-md-6 col-lg-3 my-3" id={`${id}`}>
         <div className="card">
             <div className="item-main">
                 <Link onClick={submit} to={"/details"}>
-                    <img src={`${img}`} alt="card"/>
+                    <img src={require(`../../styles/${img}`)} alt="card"/>
                 </Link>
-                <div onClick={onClick} className="add-to-card">
-                    {inCart ? "In cart" : <i className="fas fa-cart-plus"></i>}
-                </div>
+                <button disabled={inCart ? true : false} onClick={() => addToCart(id)} className="btn add-to-card">
+                    {inCart ? <span>In cart</span> : <i className="fas fa-cart-plus"></i>}
+                </button>
             </div>
             <div className="item-footer">
                 <span>{title}</span>

@@ -1,24 +1,34 @@
-import { SUBMIT_TO_DETAILS, OPEN_MODAL, CLOSE_MODAL } from '../constans';
-import { IDetails, ISUBMIT } from '../types';
+import { SUBMIT_TO_DETAILS, OPEN_MODAL, CLOSE_MODAL, ADD_CART_ITEM, REMOVE_CART_ITEM } from '../constans';
+import { IMODAL, IModalProps, ICartActionTypes } from '../types';
 
 
-export const submitToDetails = (obj:IDetails):ISUBMIT => ({
+export const submitToDetails = (id:number):ICartActionTypes => ({
     type: SUBMIT_TO_DETAILS,
-    payload: {
-        ...obj
-    }
+    payload:id
 });
 
-export const openModal = () => ({
+export const openModal = (obj:IModalProps):IMODAL => ({
     type: OPEN_MODAL,
     payload: {
+        ...obj,
         isOpen: true
     }
 });
 
-export const closeModal = () => ({
+export const closeModal = ():IMODAL => ({
     type: CLOSE_MODAL,
     payload: {
         isOpen: false
     }
 })
+
+export const addToCart = (id:number):ICartActionTypes => ({
+    type: ADD_CART_ITEM,
+    payload: id
+})
+
+export const removeCartItem = (id:number):ICartActionTypes => ({
+    type: REMOVE_CART_ITEM,
+    payload:id
+})
+

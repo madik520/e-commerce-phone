@@ -1,38 +1,31 @@
 import React from 'react';
 import CardItem from './cardItem';
+import { IStore } from '../../types';
 
 
 
-
-type ICardTypes = {
-    id: number,
-    title: string,
-    img: string,
-    price: number,
-    company: string,
-    info: string,
-    inCart: boolean
-}
 interface ICardList{
-    arr: Array<ICardTypes>,
-    onClick: React.MouseEventHandler<HTMLDivElement>,
-    submitToDetails: (obj:object) => void
+    arr: IStore[],
+    submitToDetails: (id:number) => void,
+    addToCart: (id:number) => void
 }
 
 
-const CardList:React.FC<ICardList> = ({ arr, onClick, submitToDetails}) => {
+const CardList:React.FC<ICardList> = ({ arr, submitToDetails, addToCart}) => {
     return(
         <ul className="row">
-            { arr.map(({ id, title, price, img, company, info, inCart }) => {
+            { arr.map(({ id, title, price, img, inCart, count, total }) => {
                 return <CardItem 
                 key={id} 
                 id={id} 
                 title={title} 
                 price={price}
-                img={require(`../../styles/${img}`)}
+                img={img}
                 inCart={inCart}
-                onClick={() => {}}
-                submit={() => submitToDetails({id, title, price, img, company, info})}
+                addToCart={addToCart}
+                submit={() => submitToDetails(id)}
+                total={total}
+                count={count}
                 />
             }) }
         </ul>

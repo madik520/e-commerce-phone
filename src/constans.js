@@ -5,3 +5,7 @@ export const SUBMIT_TO_DETAILS = "SUBMIT_TO_DETAILS";
 export const OPEN_MODAL = "OPEN_MODAL";
 export const CLOSE_MODAL = "CLOSE_MODAL";
 
+//Cart
+export const ADD_CART_ITEM = "ADD_CART";
+export const REMOVE_CART_ITEM = "REMOVE_CART_ITEM";
+export const CLEAR_CART = "CLEAR_CART";

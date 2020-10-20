@@ -1,29 +1,39 @@
 import React from 'react';
-import { storeProducts } from '../data';
 import CardList from '../components/card/cardList';
-import { submitToDetails } from '../actions/actionCreator';
+import { submitToDetails, addToCart } from '../actions/actionCreator';
 import { connect } from 'react-redux';
+import { RootState } from '../reducers/index';
+import { IStore } from '../types';
 
 
-type IPhoneTypes = {
-    id: number, 
-    title: string, 
-    img: string, 
-    price: number, 
+interface StateProps {
+    dataProduct: IStore[]
+}
+interface DispatchProps {
+    submitToDetails: (id:number) => void, 
+    addToCart: (id:number) => void, 
 }
 
-interface IMainProp {
-    storeProducts: Array<IPhoneTypes>,
-    submitToDetails: (obj:object) => void
-}
 
-const Main:React.FC<IMainProp> = ({ submitToDetails }) => {
+type IMain=  DispatchProps & StateProps; 
+
+const Main:React.FC<IMain> = ({dataProduct, submitToDetails, addToCart }) => {
     return(
         <div className="container">
             <h1 className="text-center mt-5 my-title"><strong className="mr-3">Our</strong>Products</h1>
-            <CardList arr={storeProducts}  onClick={() => {}} submitToDetails={submitToDetails} />
+            <CardList 
+            arr={dataProduct}  
+            addToCart={addToCart} 
+            submitToDetails={submitToDetails}
+            />
         </div>
     )
 };
 
-export default connect<IMainProp>(null, { submitToDetails })(Main);
+const mapState = (state:RootState):any => ({
+    dataProduct: state.storeProductReducer.products
+})
+
+
+
+export default connect(mapState, { submitToDetails, addToCart })(Main);

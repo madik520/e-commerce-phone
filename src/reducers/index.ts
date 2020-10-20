@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import detailsReducer from './detailsReducer';
+import modalReducer  from './modalReducer';
+import storeProductReducer from './storeProduct';
 
 const rootReducer = combineReducers({
-    detailsReducer: detailsReducer
+    storeProductReducer: storeProductReducer,
+    modalReducer: modalReducer
 });
 
 export default rootReducer;

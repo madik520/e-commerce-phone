@@ -19,7 +19,6 @@ body{
     margin: 0;
     padding: 0;
     font-family: $Oswald !important;
-    background: var($mainWhite) !important;
     color: var($mainDark) !important;
 }
 li{
@@ -71,6 +70,7 @@ nav{
     overflow: hidden;
     height: 300px;
     transition: 1.2s ease-in;
+
     .item-main{
         width: 100%;
         height: 80%;
@@ -85,7 +85,8 @@ nav{
             }
         }
         .add-to-card{
-            width: 40px;
+            min-width: 40px;
+            max-width: 100px;
             height: 40px;
             display: flex;
             justify-content: center;
@@ -93,6 +94,9 @@ nav{
             position: absolute;
             right: 0px;
             bottom: 60px;
+            border: none;
+            border-color: none;
+            border-radius: 0;
             border-top-left-radius: 10px;
             background-color: $lightBlue;
             color: #ffffff;
@@ -100,6 +104,22 @@ nav{
             cursor: pointer;
             transform: translate(50px, 50px);
             transition: 1.2s ease-in;
+            font-size: 1.5rem;
+            line-height: 0.9;
+            &:active{
+                border: none;
+                border-color: none;
+                box-shadow: none;
+            }
+            &:hover{
+                border: none;
+                border-color: none;
+                box-shadow: none;
+            }
+            &:disabled{
+                opacity: 1;
+                color: #ffffff;
+            }
         }
     }
     .item-footer{
@@ -126,7 +146,7 @@ nav{
         box-shadow: 5px 5px 5px -3px rgba(0,0,0,0.5);
         .add-to-card{
             transform: translate(0px, 0px);
-            i{
+            span, i{
                 transition: 1s ease-in-out;
                 &:hover{
                     color: $mainBlue;
@@ -224,4 +244,15 @@ nav{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+//CART
+
+.cart-count{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
 }

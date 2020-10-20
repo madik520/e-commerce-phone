@@ -13,39 +13,44 @@ type DetailsProps = {
 }
 
 interface IDetails {
-    detailsReducer: DetailsProps
+    details: DetailsProps[]
     submitToDetails: React.MouseEventHandler
 }
 
 
-const Details:React.FC<IDetails> = ({ detailsReducer }) => {
-    const { id, title, img, price, company, info } = detailsReducer;
-    return id !== null ? (
+const Details:React.FC<IDetails> = ({ details }) => {
+    return details !== null ? (
         <>
-            <div id={`${id}`} className="container">
-                    <h1 className="text-center details-title">{title}</h1>
-                    <main className="details-wrapper">
-                        <div className="col-5 details-img">
-                            <img src={require(`../styles/${img}`)} alt="phone" />
-                        </div>
-                        <div className="col-7 details-content">
-                            <ul className="details-list">
-                                <li>Model : {title}</li>
-                                <li>MADE BY: {company}</li>
-                                <li>Price: ${price}</li>
-                                <li>Some Info About Products:
-                                    <p>{info}</p>
-                                </li>
-                            </ul>
-                            <div className="details-footer">
-                                <Link to="/"><button className="btn details-btn mr-2">Back To Products</button></Link>
-                                <button className="btn details-btn">Add To Cart</button>
-                            </div>
-                        </div>
-                    </main>
-            </div>
+        { details.map(({ id, title, img, company, price, info }) => {
+            return <div key={`${id}`} className="container">
+            <h1 className="text-center details-title">{title}</h1>
+            <main className="details-wrapper">
+                <div className="col-5 details-img">
+                    <img src={require(`../styles/${img}`)} alt="phone" />
+                </div>
+                <div className="col-7 details-content">
+                    <ul className="details-list">
+                        <li>Model : {title}</li>
+                        <li>MADE BY: {company}</li>
+                        <li>Price: ${price}</li>
+                        <li>Some Info About Products:
+                            <p>{info}</p>
+                        </li>
+                    </ul>
+                    <div className="details-footer">
+                        <Link to="/"><button className="btn details-btn mr-2">Back To Products</button></Link>
+                        <button className="btn details-btn">Add To Cart</button>
+                    </div>
+                </div>
+            </main>
+    </div>
+        }) }
         </>
     ): <h1 className="text-center mt-5">You don`t choose any product</h1>
 };
 
-export default connect(({ detailsReducer }:RootState) => ({ detailsReducer }))(Details);
+const mapStateToProps = (state:RootState) =>({
+    details: state.storeProductReducer.details
+})
+
+export default connect(mapStateToProps, null)(Details);
