@@ -5,13 +5,13 @@ import { SUBMIT_TO_DETAILS, ADD_CART_ITEM } from '../constans';
 
 type StateTypes = {
     products: IStore[],
-    details: IStore[] | null,
+    details: IStore[],
     shopingCart: IStore[]
 }
 
 const initialState:StateTypes = {
     products: storeProducts,
-    details: null,
+    details: [],
     shopingCart: []
 }
 
@@ -28,6 +28,7 @@ const storeProductReducer = (state = initialState, action:ICartActionTypes):Stat
             return {
                 ...state,
                 products: state.products.map(i => i.id === action.payload ? ({ ...i, inCart: true }) : i),
+                details: state.details.map(i => ({...i, inCart: true })),
                 shopingCart: state.shopingCart.concat(changeItem)
             }
         default:

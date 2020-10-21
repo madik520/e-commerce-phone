@@ -2,26 +2,35 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { RootState } from '../reducers/index';
 import { Link } from 'react-router-dom';
-
-type DetailsProps = {
-    id: number | null,
-    title: string | null,
-    img: string | null,
-    price: number | null,
-    company: string | null,
-    info: string | null,
+import { addToCart, openModal } from '../actions/actionCreator';
+import { IStore } from '../types';
+import Modal from '../components/modal/modal';
+interface IStateProps {
+    details: IStore[],
 }
 
-interface IDetails {
-    details: DetailsProps[]
-    submitToDetails: React.MouseEventHandler
+interface IDispatchProps {
+    addToCart: (id:number) => void, 
+    openModal: (obj:any) => void
 }
 
+interface OwnProps {
+    id: number,
+    title: string,
+    img: string,
+    price: number,
+    company: string,
+    info: string,
+    inCart: boolean,
+}
 
-const Details:React.FC<IDetails> = ({ details }) => {
-    return details !== null ? (
+type DetailsTypes = IStateProps & IDispatchProps & OwnProps;
+
+const Details:React.FC<DetailsTypes> = ({ details, addToCart, openModal }) => {
+    return details.length !== 0 ? (
         <>
-        { details.map(({ id, title, img, company, price, info }) => {
+        <Modal />
+        { details.map(({ id, title, img, company, price, info, inCart }) => {
             return <div key={`${id}`} className="container">
             <h1 className="text-center details-title">{title}</h1>
             <main className="details-wrapper">
@@ -39,7 +48,7 @@ const Details:React.FC<IDetails> = ({ details }) => {
                     </ul>
                     <div className="details-footer">
                         <Link to="/"><button className="btn details-btn mr-2">Back To Products</button></Link>
-                        <button className="btn details-btn">Add To Cart</button>
+                        <button onClick={() => {addToCart(id); openModal({ title, img, price })}} disabled={inCart ? true : false} className="btn details-btn">{inCart ? "In cart" : "Add To Cart"}</button>
                     </div>
                 </div>
             </main>
@@ -49,8 +58,8 @@ const Details:React.FC<IDetails> = ({ details }) => {
     ): <h1 className="text-center mt-5">You don`t choose any product</h1>
 };
 
-const mapStateToProps = (state:RootState) =>({
-    details: state.storeProductReducer.details
+const mapStateToProps = (state:RootState):IStateProps => ({
+        details: state.storeProductReducer.details,
 })
 
-export default connect(mapStateToProps, null)(Details);
+export default connect<IStateProps, IDispatchProps, OwnProps, RootState>(mapStateToProps, { addToCart, openModal })(Details);

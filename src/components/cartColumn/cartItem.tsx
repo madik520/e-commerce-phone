@@ -29,9 +29,9 @@ const CartItem:React.FC<ICart> = ({ arr }) => {
                     </div>
                     <div className="col-10 mx-auto col-lg-2">
                         <div className="btn-group">
-                            <button style={{'border': '2px solid black'}} className="btn">-</button>
+                            <button className="btn">-</button>
                             <div className="cart-count ml-2 mr-2">{count}</div>
-                            <button style={{'border': '2px solid black'}} className="btn">+</button>
+                            <button className="btn">+</button>
                         </div>
                     </div>
                     <div className="col-10 mx-auto col-lg-2">

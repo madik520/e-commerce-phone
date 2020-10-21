@@ -2,14 +2,14 @@ import { ADD_CART_ITEM, CLOSE_MODAL, OPEN_MODAL, SUBMIT_TO_DETAILS, REMOVE_CART_
 
 // Store TYPES
 export interface IStore {
-    id: number,
-    title: string,
+    id: number, 
+    title: string, 
     img: string,
-    price: number,
-    company: string,
-    info: string,
-    inCart: boolean,
-    total: number,
+    price: number, 
+    company: string, 
+    info: string, 
+    inCart: boolean, 
+    total: number, 
     count: number,
 }
 interface ISUBMIT {
@@ -17,12 +17,13 @@ interface ISUBMIT {
     payload: number
 }
 
+
 // MODAL TYPES
 export interface IModalProps {
     title: string | null,
     img: string | null,
     price: number | null,
-    isOpen: boolean
+    isOpen?: boolean
 }
 
 interface IMODALOPEN {

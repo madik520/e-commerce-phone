@@ -7,11 +7,12 @@ import { IStore } from '../../types';
 interface ICardList{
     arr: IStore[],
     submitToDetails: (id:number) => void,
-    addToCart: (id:number) => void
+    addToCart: (id:number) => void,
+    openModal: (obj:object) => void
 }
 
 
-const CardList:React.FC<ICardList> = ({ arr, submitToDetails, addToCart}) => {
+const CardList:React.FC<ICardList> = ({ arr, submitToDetails, addToCart, openModal }) => {
     return(
         <ul className="row">
             { arr.map(({ id, title, price, img, inCart, count, total }) => {
@@ -23,6 +24,7 @@ const CardList:React.FC<ICardList> = ({ arr, submitToDetails, addToCart}) => {
                 img={img}
                 inCart={inCart}
                 addToCart={addToCart}
+                openModal={openModal}
                 submit={() => submitToDetails(id)}
                 total={total}
                 count={count}

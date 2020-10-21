@@ -245,8 +245,84 @@ nav{
     justify-content: center;
     align-items: center;
 }
+.modal-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 380px;
+    height: 520px;
+    background-color: $mainWhite;
+    border-radius: 0%;
+    border: none;
+    img{
+        width: 280px;
+    }
+    .modal-title{
+        color: $mainDark;
+        font-size: 1.3rem;
+        font-weight: 400;
+    }
+    h2{
+        font-size: 1.3rem;
+    }
+    span{
+        font-size: 1.3rem;
+        color: #808080;
+    }
+    .modal-footer-block{
+        margin-top: 10px;
+        button{
+            font-size: 1.2rem;
+            margin-right: 5px;
+                border: 1px solid $lightBlue;
+                background-color: transparent;
+                color: $lightBlue;
+                border-radius: 10px;
+                &:hover{
+                    background-color: $lightBlue;
+                    color: $mainDark;
+                }
+            }
+        a{
+             button{
+                border: 1px solid $mainYellow;
+                background-color: transparent;
+                color: $mainYellow;
+                border-radius: 10px;
+                &:hover{
+                    background-color: $mainYellow;
+                    color: $mainDark;
+                }
+            }
+        }
+    }
+}
 
 //CART
+.btn-group{
+    .btn{
+        border-radius: 0%;
+        box-shadow: none;
+    }
+    div{
+        font-size: 0.8rem;
+    }
+    button, div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        transition: .1s ease-in;
+        border: 1px solid #000000;
+        &:hover{
+            color: #ffffff;
+            background-color: rgb(0, 0, 0);
+        }
+    }
+    
+}
 
 .cart-count{
     width: 40px;
