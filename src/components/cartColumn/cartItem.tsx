@@ -1,19 +1,22 @@
 import React from 'react';
 
 type CartTypes = {
-    id: number | null,
-    title: string | null, 
-    price: number | null, 
-    img: string | null, 
-    count: number | null, 
-    total: number | null 
+    id: number,
+    title: string, 
+    price: number, 
+    img: string, 
+    count: number, 
+    total: number 
 }
 
 interface ICart {
-    arr: CartTypes[]
+    arr: CartTypes[],
+    increment: (num:number) => void,
+    decrement: (num:number) => void,
+    removeCartItem: (id:number) => void
 }
 
-const CartItem:React.FC<ICart> = ({ arr }) => {
+const CartItem:React.FC<ICart> = ({ arr, increment, decrement, removeCartItem }) => {
     return(
         <>
             { arr.map(({ id, title, price, img, count, total }) => {
@@ -29,13 +32,13 @@ const CartItem:React.FC<ICart> = ({ arr }) => {
                     </div>
                     <div className="col-10 mx-auto col-lg-2">
                         <div className="btn-group">
-                            <button className="btn">-</button>
+                            <button onClick={() => decrement(id)} className="btn">-</button>
                             <div className="cart-count ml-2 mr-2">{count}</div>
-                            <button className="btn">+</button>
+                            <button onClick={() => increment(id)} className="btn">+</button>
                         </div>
                     </div>
                     <div className="col-10 mx-auto col-lg-2">
-                        <i style={{'color': '#ffa400', 'cursor': 'pointer'}} className="fas fa-trash"></i>
+                        <i onClick={() => removeCartItem(id)} style={{'color': '#ffa400', 'cursor': 'pointer'}} className="fas fa-trash"></i>
                     </div>
                     <div className="col-10 mx-auto col-lg-2">
                         <p className="font-weight-bold">Item Total : <span>${total}</span></p>

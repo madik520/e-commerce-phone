@@ -1,5 +1,5 @@
-import { SUBMIT_TO_DETAILS, OPEN_MODAL, CLOSE_MODAL, ADD_CART_ITEM, REMOVE_CART_ITEM } from '../constans';
-import { IMODAL, IModalProps, ICartActionTypes } from '../types';
+import { SUBMIT_TO_DETAILS, OPEN_MODAL, CLOSE_MODAL, ADD_CART_ITEM, REMOVE_CART_ITEM, INCREMENT, DECREMENT, CLEAR_CART } from '../constans';
+import { IMODAL, IModalProps, ICartActionTypes, IStore } from '../types';
 
 
 export const submitToDetails = (id:number):ICartActionTypes => ({
@@ -27,8 +27,21 @@ export const addToCart = (id:number):ICartActionTypes => ({
     payload: id
 })
 
-export const removeCartItem = (id:number):ICartActionTypes => ({
-    type: REMOVE_CART_ITEM,
-    payload:id
+export const clearCart = ():ICartActionTypes => ({
+    type: CLEAR_CART,
+    payload: []
 })
 
+export const removeCartItem = (id:number):ICartActionTypes => ({
+    type: REMOVE_CART_ITEM,
+    payload: id
+})
+
+export const increment = (id:number):ICartActionTypes => ({
+    type: INCREMENT,
+    payload: id
+})
+export const decrement = (id:number):ICartActionTypes => ({
+    type: DECREMENT,
+    payload: id
+})

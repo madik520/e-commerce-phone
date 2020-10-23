@@ -9,3 +9,5 @@ export const CLOSE_MODAL = "CLOSE_MODAL";
 export const ADD_CART_ITEM = "ADD_CART";
 export const REMOVE_CART_ITEM = "REMOVE_CART_ITEM";
 export const CLEAR_CART = "CLEAR_CART";
+export const INCREMENT = "INCREMENT";
+export const DECREMENT = "DECREMENT";

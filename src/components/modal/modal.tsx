@@ -26,7 +26,7 @@ const Modal:React.FC<ModalTypes> = ({ modalState, closeModal }) => {
                 <span>Price: ${price}</span>
                 <div className="modal-footer-block">
                     <button onClick={() => closeModal()} className="btn">Store</button>
-                    <Link to="/cart"><button className="btn">Go To Cart</button></Link>
+                    <Link onClick={() => closeModal()} to="/cart"><button className="btn">Go To Cart</button></Link>
                 </div>
             </div>
         </div>

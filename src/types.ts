@@ -1,4 +1,4 @@
-import { ADD_CART_ITEM, CLOSE_MODAL, OPEN_MODAL, SUBMIT_TO_DETAILS, REMOVE_CART_ITEM, CLEAR_CART } from './constans';
+import { ADD_CART_ITEM, CLOSE_MODAL, OPEN_MODAL, SUBMIT_TO_DETAILS, REMOVE_CART_ITEM, CLEAR_CART, INCREMENT, DECREMENT } from './constans';
 
 // Store TYPES
 export interface IStore {
@@ -12,6 +12,7 @@ export interface IStore {
     total: number, 
     count: number,
 }
+
 interface ISUBMIT {
     type: typeof SUBMIT_TO_DETAILS,
     payload: number
@@ -55,9 +56,7 @@ interface IRemoveCartItem {
 
 interface IClearCart {
     type: typeof CLEAR_CART,
-    payload: {
-        item: Array<any>
-    }
+    payload: IStore[]
 }
 export type ICardItems = {
     id: number,
@@ -70,4 +69,15 @@ export type ICardItems = {
     total: number,
     info?:string
 }
-export type ICartActionTypes = IAddToCart | IRemoveCartItem | IClearCart | ISUBMIT;
+
+interface IIncrement {
+    type: typeof INCREMENT,
+    payload: number
+}
+interface IDecrement {
+    type: typeof DECREMENT,
+    payload: number
+}
+
+export type ICartActionTypes = IAddToCart | IRemoveCartItem | IClearCart | ISUBMIT | IIncrement | IDecrement;
+
