@@ -17,6 +17,12 @@ interface ICart {
 }
 
 const CartItem:React.FC<ICart> = ({ arr, increment, decrement, removeCartItem }) => {
+    const DecrementAndRemove = (id:number, num:number) => {
+        decrement(id);
+        if(num === 1){
+            removeCartItem(id)
+        }
+    }
     return(
         <>
             { arr.map(({ id, title, price, img, count, total }) => {
@@ -32,7 +38,7 @@ const CartItem:React.FC<ICart> = ({ arr, increment, decrement, removeCartItem })
                     </div>
                     <div className="col-10 mx-auto col-lg-2">
                         <div className="btn-group">
-                            <button onClick={() => decrement(id)} className="btn">-</button>
+                            <button onClick={() => DecrementAndRemove(id, count)} className="btn">-</button>
                             <div className="cart-count ml-2 mr-2">{count}</div>
                             <button onClick={() => increment(id)} className="btn">+</button>
                         </div>

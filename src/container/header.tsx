@@ -10,15 +10,19 @@ const SVG:React.FC = () => (
 const Header:React.FC = () => {
     return(
         <header>
-            <nav className="navbar navbar-expand-sm">
-                <Link className="nav-link ml-4" to="/">
+            <nav className="navbar navbar-expand-sm px-sm-5">
+                <Link className="navbar-brand" to="/">
                     <SVG />
                 </Link>
-                <Link className="nav-link" to="/">
-                    <span className="text-white ml-5">Products</span>
-                </Link>
+                <ul className="navbar-nav align-items-center">
+                    <li className="nav-item ml-5">
+                        <Link className="nav-link" to="/">
+                            <span className="text-white">Products</span>
+                        </Link>
+                    </li>
+                </ul>
                 <Link className="ml-auto" to="/cart" >
-                    <button className="btn my-btn-cart mr-5 ">
+                    <button className="btn my-btn-cart">
                         <i className="fas fa-cart-plus"></i>
                         My Cart
                     </button>

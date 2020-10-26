@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { IModalProps } from '../../types';
 
 interface ICardItem {
     id: number,
@@ -12,11 +12,11 @@ interface ICardItem {
     count: number,
     submit: React.MouseEventHandler,
     addToCart: (id:number) => void,
-    openModal: (obj:object) => void
+    openModal: (obj:IModalProps) => void
 }
 
 const CardItem:React.FC<ICardItem> = ({ id,  title, img,  price, inCart, submit, addToCart, openModal }) => (
-    <li className="col-9 mx-auto col-md-6 col-lg-3 my-3" id={`${id}`}>
+    <div className="col-9 mx-auto col-md-6 col-lg-3 my-3" id={`${id}`}>
         <div className="card">
             <div className="item-main">
                 <Link onClick={submit} to={"/details"}>
@@ -31,7 +31,7 @@ const CardItem:React.FC<ICardItem> = ({ id,  title, img,  price, inCart, submit,
                 <span>${price}</span>
             </div>
         </div>
-    </li>
+    </div>
 );
 
 export default CardItem;

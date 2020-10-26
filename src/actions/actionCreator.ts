@@ -1,5 +1,5 @@
 import { SUBMIT_TO_DETAILS, OPEN_MODAL, CLOSE_MODAL, ADD_CART_ITEM, REMOVE_CART_ITEM, INCREMENT, DECREMENT, CLEAR_CART } from '../constans';
-import { IMODAL, IModalProps, ICartActionTypes, IStore } from '../types';
+import { IMODAL, IModalProps, ICartActionTypes } from '../types';
 
 
 export const submitToDetails = (id:number):ICartActionTypes => ({

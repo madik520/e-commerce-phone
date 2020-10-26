@@ -167,7 +167,6 @@ nav{
 
 //DETAILS
 .details-title{
-    margin-top: 100px;
     color: $mainBlue;
 }
 .details-wrapper{
@@ -177,7 +176,6 @@ nav{
     align-items: center;
 }
 .details-content{
-    padding-top: 50px;
     .details-list{
         padding-left: 0;
         li{
@@ -235,7 +233,7 @@ nav{
     width: 100%;
     height: 100%;
     z-index: 1000;
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
@@ -337,4 +335,16 @@ nav{
     font-family: $Permanent;
     font-size: 1.6rem;
     letter-spacing: 5px;
+}
+.cart-empty{
+    font-family: $Permanent;
+    font-size: 3rem;
+    letter-spacing: 5px;
+}
+
+
+@media screen and (max-width: 345px){
+    .my-title{
+        font-size: 1.5rem;
+    }
 }

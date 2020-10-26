@@ -27,8 +27,8 @@ const Cart:React.FC<CartTypes> = ({ shoppingCart, increment, decrement, clearCar
     useEffect(() =>{
         setTotal(result);
     }, [result])
-    return(
-        <div className="container-fluid text-center d-none d-lg-block">
+    return shoppingCart.length !== 0 ? (
+        <div className="container-fluid text-center d-lg-block">
             <CartColumn />
             <CartItem arr={shoppingCart} increment={increment} decrement={decrement}  removeCartItem={removeCartItem} />
             <div className="container">
@@ -40,7 +40,7 @@ const Cart:React.FC<CartTypes> = ({ shoppingCart, increment, decrement, clearCar
                 </div>
             </div>
         </div>
-    )
+    ): <h1 className="text-center mt-5 cart-empty">Your cart is Empty</h1>
 };
 
 const mapStateToProps = (state:RootState) => ({

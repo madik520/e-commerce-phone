@@ -6,6 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 import Main from './container/main';
 import Details from './container/details';
 import Cart from './container/cart';
+import NotFound from './container/notfound';
 
 
 
@@ -19,6 +20,7 @@ const App: React.FC = () => {
         <Route exact path="/" component={Main} />
         <Route path="/details" component={Details} />
         <Route path="/cart" component={Cart} />
+        <Route component={NotFound} />
       </Switch>
     </>
   );

@@ -43,6 +43,7 @@ const storeProductReducer = (state = initialState, action:ICartActionTypes):Stat
         case REMOVE_CART_ITEM:
             return{
                 ...state,
+                products: state.products.map(i => i.id === action.payload ? ({ ...i, inCart: false }) : i),
                 shopingCart: state.shopingCart.filter(i => i.id !== action.payload)
             }
         case CLEAR_CART:
