@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/e-commerce-phone/static/css/main.73b2a41d.chunk.css",
-    "main.js": "/e-commerce-phone/static/js/main.1f210218.chunk.js",
-    "main.js.map": "/e-commerce-phone/static/js/main.1f210218.chunk.js.map",
+    "main.js": "/e-commerce-phone/static/js/main.a29142e2.chunk.js",
+    "main.js.map": "/e-commerce-phone/static/js/main.a29142e2.chunk.js.map",
     "runtime-main.js": "/e-commerce-phone/static/js/runtime-main.9248dddd.js",
     "runtime-main.js.map": "/e-commerce-phone/static/js/runtime-main.9248dddd.js.map",
     "static/css/2.2a86faee.chunk.css": "/e-commerce-phone/static/css/2.2a86faee.chunk.css",
     "static/js/2.647875db.chunk.js": "/e-commerce-phone/static/js/2.647875db.chunk.js",
     "static/js/2.647875db.chunk.js.map": "/e-commerce-phone/static/js/2.647875db.chunk.js.map",
     "index.html": "/e-commerce-phone/index.html",
-    "precache-manifest.ed914d09a5194344754715e063fb2775.js": "/e-commerce-phone/precache-manifest.ed914d09a5194344754715e063fb2775.js",
+    "precache-manifest.24c7f01386b245abcbca2a543a9f2014.js": "/e-commerce-phone/precache-manifest.24c7f01386b245abcbca2a543a9f2014.js",
     "service-worker.js": "/e-commerce-phone/service-worker.js",
     "static/css/2.2a86faee.chunk.css.map": "/e-commerce-phone/static/css/2.2a86faee.chunk.css.map",
     "static/css/main.73b2a41d.chunk.css.map": "/e-commerce-phone/static/css/main.73b2a41d.chunk.css.map",
@@ -28,6 +28,6 @@
     "static/css/2.2a86faee.chunk.css",
     "static/js/2.647875db.chunk.js",
     "static/css/main.73b2a41d.chunk.css",
-    "static/js/main.1f210218.chunk.js"
+    "static/js/main.a29142e2.chunk.js"
   ]
 }
